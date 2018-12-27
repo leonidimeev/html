@@ -18,7 +18,7 @@ echo $maker;
 echo $time;
 echo $medicine;
 
-$SQLquery = "INSERT INTO DrugsNew VALUES ((SELECT IFNULL(max(ID)+1,1) from (SELECT ID from DrugsNew) as ID), '$name','$image','$maker','$time','$medicine')";
+$SQLquery = "INSERT INTO Drugs VALUES ((SELECT IFNULL(max(ID)+1,1) from (SELECT ID from Drugs) as ID), '$name','$image','$maker','$time','$medicine')";
 echo '<BR> SQL query: ';
 echo $SQLquery;
 
