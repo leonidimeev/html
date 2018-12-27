@@ -43,7 +43,7 @@ style="width:100%; border-radius:5px;">
 rowspan="2"
 style="width:80%">
 <?php
-	printf('<P>Hello world! Searching for every medicine:</P> %s',"\n");
+	printf('<P>Drugs_out v.3.0 Searching for every medicine:</P> %s',"\n");
 	include('config.php');	
 	$link = mysqli_connect($server,$user,$password,$database)
 	    or die('Error: Unable to connect: ' . mysqli_connect_error());
