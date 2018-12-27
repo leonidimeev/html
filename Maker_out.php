@@ -92,6 +92,11 @@ style="width:80%">
 <img src="#">
 <span style="margin-left:5px;">Список производителей</span></a>
 </p>
+<p>
+<a href="add_from.php">
+<img src="#">
+<span style="margin-left:5px;">Внести препарат в базу</span></a>
+</p>
 </td>
 </tr>
 <tr>
