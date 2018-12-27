@@ -43,34 +43,34 @@ style="width:100%; border-radius:5px;">
 rowspan="2"
 style="width:80%">
 <?php
-	printf('<P>Drugs_out v.3.0 Searching for every medicine:</P> %s',"\n");
-	include('config.php');	
-	$link = mysqli_connect($server,$user,$password,$database)
-	    or die('Error: Unable to connect: ' . mysqli_connect_error());
-	printf('<P>Succesfully connected!</P> %s',"\n");
-	
-	$SQLquery = 'SELECT DrugsNew.ID, DrugsNew.Name, DrugsNew.Image, Makers.Name, Medicine.Name FROM DrugsNew LEFT JOIN Makers ON DrugsNew.Maker=Makers.ID INNER JOIN Medicine ON DrugsNew.Medicine=Medicine.ID';
-	$SQLresult = mysqli_query($link,$SQLquery);
+    printf('<P>Hello world! Searching for every medicine:</P> %s',"\n");
+    include('config.php');
+    $link = mysqli_connect($server,$user,$password,$database)
+        or die('Error: Unable to connect: ' . mysqli_connect_error());
+    printf('<P>Succesfully connected!</P> %s',"\n");
 
-	printf('<table cellspacing=\' 0 \' border=\' 1 \'> %s',"\n");
-	printf('<TR> %s',"\n");
-	printf('	<TH>ID</TH> %s',"\n");
-	printf('	<TH>Name</TH> %s',"\n");
-	printf('	<TH>Image</TH> %s',"\n");
-	printf('	<TH>Maker</TH> %s',"\n");
-	#printf('	<TH>Storage time</TH> %s',"\n");
-	printf('	<TH>Medicine</TH> %s',"\n");
-	printf('</TR> %s',"\n");
+    $SQLquery = 'SELECT Drugs.ID,Drugs.Name,Drugs.Image,Maker.Name,Medicine.Medical_name FROM Drugs INNER JOIN Maker ON Drugs.Maker=Maker.ID INNER JOIN Medicine ON Drugs.Medicine=Medicine.ID';
+    $SQLresult = mysqli_query($link,$SQLquery);
 
-	while ($result = mysqli_fetch_array($SQLresult,MYSQLI_NUM))
-	{
-		printf('<TR>');
-		printf('<TD> %s </TD> <TD>%s</TD> <TD> %s  </TD><TD> %s  </TD><TD> %s  </TD>',$result[0],$result[1],$result[2],$result[3],$result[4]);
-		printf('</TR> %s',"\n");
-	}
-	printf('</table> %s',"\n");
-	mysqli_free_result($SQLresult);
-	mysqli_close($link);
+    printf('<table cellspacing=' 0 ' border=' 1 '> %s',"\n");
+    printf('<TR> %s',"\n");
+    printf('    <TH>ID</TH> %s',"\n");
+    printf('    <TH>Name</TH> %s',"\n");
+    //printf('    <TH>Image</TH> %s',"\n");
+    printf('    <TH>Maker</TH> %s',"\n");
+    printf('    <TH>Storage time</TH> %s',"\n");
+    printf('    <TH>Medicine</TH> %s',"\n");
+    printf('</TR> %s',"\n");
+
+    while ($result = mysqli_fetch_array($SQLresult,MYSQLI_NUM))
+    {
+        printf('<TR>');
+        printf('<TD> %s </TD> <TD>%s</TD> <TD> %s  </TD><TD> %s  </TD><TD> %s  </TD>',$result[0],$result[1],$result[2],$result[3],$result[4]);
+        printf('</TR> %s',"\n");
+    }
+    printf('</table> %s',"\n");
+    mysqli_free_result($SQLresult);
+    mysqli_close($link);
 
 ?>
 </td>
