@@ -78,7 +78,7 @@ style="width:80%">
 <td bgcolor="#e6e6fa">
 <h3>Меню</h3>
 <p>
-<a href="">
+<a href="index.html">
 <img src="#">
 <span style="margin-left:5px;">Главная</span></a>
 </p>
@@ -99,7 +99,7 @@ style="width:80%">
 bgcolor="#e6e6fa"
 align="center">
 <h3>Общая информация</h3>
-<p>Текст общей информации</p>
+<p>Этот сайт является пробным проектом, не предоставляющим никаких реальных услуг.</p>
 </td>
 </tr>
 </table>
