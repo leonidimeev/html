@@ -1,7 +1,7 @@
 <?php
-include('config.php');
+include('config.php');	
 $link = mysqli_connect($server,$user,$password,$database)
-    or die('Error: Unable to connect: ' . mysqli_connect_error());
+	or die('Error: Unable to connect: ' . mysqli_connect_error());
 
 
 $name = mysqli_real_escape_string($link, $_POST['name']);
@@ -18,7 +18,7 @@ echo $maker;
 echo $time;
 echo $medicine;
 
-$SQLquery = "INSERT INTO Drugs VALUES ((SELECT IFNULL(max(ID)+1,1) from (SELECT ID from Drugs) as ID), '$name','$image','$maker','$time','$medicine')";
+$SQLquery = "INSERT INTO DrugsNew VALUES ((SELECT IFNULL(max(ID)+1,1) from (SELECT ID from DrugsNew) as ID), '$name','$image','$maker','$time','$medicine')";
 echo '<BR> SQL query: ';
 echo $SQLquery;
 

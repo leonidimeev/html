@@ -1,6 +1,6 @@
 <?php
 $server='localhost';
-$user='root';
-$password='';
-$database='meddata';
+$user='user1234';
+$password='user1234';
+$database='LebedkinAnatolijDB';
 ?>
