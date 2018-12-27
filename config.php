@@ -1,6 +1,6 @@
 <?php
 $server='localhost';
-$user='root';
-$password='';
+$user='user1234';
+$password='user1234';
 $database='meddata';
 ?>
