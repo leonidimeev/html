@@ -50,7 +50,7 @@ style="width:80%">
 	    or die('Error: Unable to connect: ' . mysqli_connect_error());
 	printf('<P>Succesfully connected!</P> %s',"\n");
 	
-	$SQLquery = 'SELECT * from Maker';
+	$SQLquery = 'SELECT Maker.id,Maker.name,Adress.Adress,City.Name,Country.Name from Maker join Adress on Maker.Adress=Adress.id join City on Adress.City=City.id join Country on City.Country=Country.id';
 	$SQLresult = mysqli_query($link,$SQLquery);
 
 	printf('<table cellspacing=\' 0 \' border=\' 1 \'> %s',"\n");
