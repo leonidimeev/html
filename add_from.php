@@ -7,7 +7,7 @@
 	$link = mysqli_connect($server,$user,$password,$database)
 		or die('Error: Unable to connect: ' . mysqli_connect_error());
 	
-	
+	mysql_set_charset('utf8');
 	
 	$name = mysqli_real_escape_string($link, $_POST['name']);
 	$image = mysqli_real_escape_string($link, $_POST['image']);
