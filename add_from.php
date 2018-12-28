@@ -42,44 +42,35 @@ style="width:100%; border-radius:5px;">
 <td
 rowspan="2"
 style="width:80%">
-<?php
-	error_reporting(-1);
-	header('Content-Type: text/html; charset=utf-8');
-	include('config.php');	
-	$link = mysqli_connect($server,$user,$password,$database)
-		or die('Error: Unable to connect: ' . mysqli_connect_error());
-	
-	mysql_set_charset('utf8');
-	
-	$name = mysqli_real_escape_string($link, $_POST['name']);
-	$image = mysqli_real_escape_string($link, $_POST['image']);
-	$maker = mysqli_real_escape_string($link, $_POST['maker']);
-	$time = mysqli_real_escape_string($link, $_POST['time']);
-	$medicine = mysqli_real_escape_string($link, $_POST['medicine']);
-	// Ecape String
 
-	// PhPMyAdmin // Sakila and World
-	echo $name;
-	echo $image;
-	echo $maker;
-	echo $time;
-	echo $medicine;
 
-	$SQLquery = "INSERT INTO Drugs VALUES ((SELECT IFNULL(max(ID)+1,1) from (SELECT ID from Drugs) as ID), '$name','$image','$maker','$time','$medicine')";
-	echo '<BR> SQL query: ';
-	echo $SQLquery;
 
-	if (mysqli_query($link, $SQLquery)) {
-		echo "<BR>New record created successfully";
-	} else {
-		echo "<BR>Error: " . $sql . "<br>" . mysqli_error($link);
-	}
 
-	mysqli_close($link);
+    <table width="100%" cellspacing="0" border="1">
 
-	printf('<a href="index.html"> <P>GO BACK</P> </a>');
+        <TD>
+          <P>Add Drug:</P>
+          <form action="add_from.php" method="post">
+              <table width="100%" cellspacing="0" border="1">
+                  <TR>
+                    <TD>Name:</TD> <TD><input type="text" name="name"></TD>
+                  </TR><TR>
+                  <TD>Image:</TD> <TD><input type="text" name="image"></TD>
+                  </TR><TR>
+                  <TD>Maker:</TD> <TD><input type="text" name="maker"></TD>
+                  </TR><TR>
+                  <TD>Storage time:</TD> <TD><input type="text" name="time"></TD>
+                  </TR><TR>
+                  <TD>Medicine:</TD> <TD><input type="text" name="medicine"></TD>
+                  </TR><TR>
+                <input type="submit" value="Add Drug">
+                </TR>
+				</table>
+                </form>
+              
+        </TD>
 
-?>
+
 </td>
 
 <td bgcolor="#e6e6fa">
@@ -100,6 +91,7 @@ style="width:80%">
 <span style="margin-left:5px;">Список производителей</span></a>
 </p>
 </td>
+
 </tr>
 <tr>
 <td
@@ -109,6 +101,7 @@ align="center">
 <p>Текст общей информации</p>
 </td>
 </tr>
+
 </table>
 
 <table
@@ -122,7 +115,7 @@ style="width:100%; border-radius:5px;">
 <th>
 
 <div id="footer">
-  <p>Copyright &copy; 2018. <a href="https://github.com/leonidimeev/html" title="reporef">Our github repo</a> и <a href="http://ec2-52-14-19-253.us-east-2.compute.amazonaws.com" title="hostingref">AWS Amazon</a></p>
+  <p>Copyright &copy; 2018. <a href="https://github.com/leonidimeev/html" title="reporef">Our github repo</a> è <a href="http://ec2-52-14-19-253.us-east-2.compute.amazonaws.com" title="hostingref">AWS Amazon</a></p>
 		<p><a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a> | <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> | <a href="http://jigsaw.w3.org/css-validator/check/referer" title="This page validates as CSS"><abbr title="Cascading Style Sheets">CSS</abbr></a></p></div>
 
 </div>
@@ -137,4 +130,3 @@ style="width:100%; border-radius:5px;">
 </table>
 </body>
 </html>
-
