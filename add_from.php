@@ -1,28 +1,34 @@
-<!DOCTYPE html>
-<html>
-<head>
+<?php
+		include('config.php');	
+	$link = mysqli_connect($server,$user,$password,$database)
+		or die('Error: Unable to connect: ' . mysqli_connect_error());
+		
+	$name = mysqli_real_escape_string($link, $_POST['name']);
+	$image = mysqli_real_escape_string($link, $_POST['image']);
+	$maker = mysqli_real_escape_string($link, $_POST['maker']);
+	$time = mysqli_real_escape_string($link, $_POST['time']);
+	$medicine = mysqli_real_escape_string($link, $_POST['medicine']);
+	// Ecape String
 
-<title>LebedkinImeevApteka</title>
-</head>
-<body>
+	// PhPMyAdmin // Sakila and World
+	echo $name;
+	echo $image;
+	echo $maker;
+	echo $time;
+	echo $medicine;
 
-          <P>Add Drug:</P>
-          <form action="add_from.php" method="post">
-              <table width="100%" cellspacing="0" border="1">
-                  <TR>
-                    <TD>Name:</TD> <TD><input type="text" name="name"></TD>
-                  </TR><TR>
-                  <TD>Image:</TD> <TD><input type="text" name="image"></TD>
-                  </TR><TR>
-                  <TD>Maker:</TD> <TD><input type="text" name="maker"></TD>
-                  </TR><TR>
-                  <TD>Storage time:</TD> <TD><input type="text" name="time"></TD>
-                  </TR><TR>
-                  <TD>Medicine:</TD> <TD><input type="text" name="medicine"></TD>
-                  </TR>
-				</table>
-				<input type="submit" value="Add Drug">
-                </form>
+	$SQLquery = "INSERT INTO Drugs VALUES ((SELECT IFNULL(max(ID)+1,1) from (SELECT ID from Drugs) as ID), '$name','$image','$maker','$time','$medicine')";
+	echo '<BR> SQL query: ';
+	echo $SQLquery;
 
-</body>
-</html>
+	if (mysqli_query($link, $SQLquery)) {
+		echo "<BR>New record created successfully";
+	} else {
+		echo "<BR>Error: " . $sql . "<br>" . mysqli_error($link);
+	}
+
+	mysqli_close($link);
+
+	printf('<a href="index.html"> <P>GO BACK</P> </a>');
+
+?>
