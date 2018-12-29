@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Admin Panel"
+Auth UserFile ec2-user@ip-172-31-31-191/var/www/html/html/admin/.htpasswd
+Require valid-user
